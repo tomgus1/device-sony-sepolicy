@@ -1,8 +1,3 @@
-type rmt_storage, domain, domain_deprecated;
-type rmt_storage_exec, exec_type, file_type;
-
-init_daemon_domain(rmt_storage)
-
 allow rmt_storage {
     modem_efs_partition_device
     root_block_device

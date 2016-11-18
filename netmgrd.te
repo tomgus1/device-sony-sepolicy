@@ -1,9 +1,3 @@
-type netmgrd, domain, domain_deprecated;
-type netmgrd_exec, exec_type, file_type;
-
-net_domain(netmgrd)
-init_daemon_domain(netmgrd)
-
 #Allow netmgrd operations
 allow netmgrd netmgrd:capability {
     dac_override
@@ -15,9 +9,6 @@ allow netmgrd netmgrd:capability {
     setuid
     setpcap
 };
-
-#Allow logging
-allow netmgrd smem_log_device:chr_file rw_file_perms;
 
 #Allow operations on different types of sockets
 allow netmgrd netmgrd:netlink_socket { write read create bind };
@@ -37,11 +28,7 @@ allow netmgrd system_file:file x_file_perms;
 
 allow netmgrd self:socket create_socket_perms;
 
-#Allow communication with netd
-allow netmgrd netd_socket:sock_file w_file_perms;
 r_dir_file(netmgrd, net_data_file)
-
-r_dir_file(netmgrd, sysfs_ssr);
 
 #Allow netmgrd to create netmgrd socket
 allow netmgrd netmgrd_socket:dir create_dir_perms;
@@ -50,9 +37,6 @@ allow netmgrd netmgrd_socket:sock_file create_file_perms;
 allow netmgrd xlat_prop:property_service set;
 
 allow netmgrd shell_exec:file rx_file_perms;
-
-#Allow netmgrd to use wakelock
-wakelock_use(netmgrd)
 
 rw_dir_file(netmgrd, sysfs)
 r_dir_file(netmgrd, sysfs_pronto)

@@ -1,8 +1,3 @@
-type touchfusion, domain, domain_deprecated;
-type touchfusion_exec, exec_type, file_type;
-
-init_daemon_domain(touchfusion)
-
 userdebug_or_eng(`
   allow touchfusion self:capability {
     dac_read_search
