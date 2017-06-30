@@ -154,6 +154,7 @@
 ###################################
 # data files
 #
+/data/misc/powerhal(/.*)?                                           u:object_r:powerhal_data_file:s0
 /data/audio/acdbdata(/.*)?                                          u:object_r:acdb_data_file:s0
 
 ###################################
