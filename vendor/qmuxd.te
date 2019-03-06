@@ -11,6 +11,8 @@ allow qmuxd smd_device:chr_file rw_file_perms;
 allow qmuxd self:socket create_socket_perms;
 allowxperm qmuxd self:socket ioctl msm_sock_ipc_ioctls;
 
+allow qmuxd kernel:system module_request;
+
 wakelock_use(qmuxd)
 
 r_dir_file(qmuxd, sysfs_soc)
